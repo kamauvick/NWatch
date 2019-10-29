@@ -125,3 +125,22 @@ def edit_profile(request, username):
     else:
         form = UpdateProfileForm(instance=request.user.profile)
     return render(request, 'editing/edit_profile.html', {'form': form})
+
+
+def search_results(request):
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search')
+        print(search_term)
+        searched_photos = Neighbourhood.search_by_title(search_term)
+        print(searched_photos)
+        message = f'{search_term}'
+        params = {
+            'searched_photos': searched_photos,
+            'message': message,
+        }
+
+        return render(request, 'search_results.html', params)
+
+    else:
+        message = 'Ooppss, You did not search for anything.'
+        return render(request, 'main/search_results.html', locals())
