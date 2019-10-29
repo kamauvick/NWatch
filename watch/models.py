@@ -54,6 +54,11 @@ class Neighbourhood(models.Model):
         hoods = cls.objects.filter(name__icontains=searchTerm)
         return hoods
 
+    @classmethod
+    def search_by_title(cls, search_term):
+        hoods = cls.objects.filter(name__icontains=search_term)
+        return hoods
+
 
 class Business(models.Model):
     name = models.CharField(max_length=250)
