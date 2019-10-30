@@ -166,13 +166,7 @@ python3 manage.py runserver
 
 >To run tests;
 
-  
-
-python3 manage.py test
-
-  
-  
-  
+``python3 manage.py test``
 
 ### Getting data from the GraphQL Api
 > How to do it:
@@ -186,11 +180,11 @@ python3 manage.py test
 ### Create a request
 - All requests are made in the format :
 
->  `https://vicknwatch.herokuapp.com/api`
+>  `https://vicknwatch.herokuapp.com/api?query_string`
 
 - But a query string has to be passed to the url, The app uses GraphQL and hence only one endpoint is exposed.
 
-> `` python
+> ``
 ?query={
 	posts{
 		name
@@ -212,7 +206,6 @@ python3 manage.py test
 | contact | String |
 | address | String |
 | estate | Neighbourhood Type |
-|  |  |
 
 > 2. Neighbourhoods 
 
@@ -224,7 +217,6 @@ python3 manage.py test
 | image | String |
 | profileSet | ProfileType |
 | hoods | PostType |
-|  |  |
 
 
   > 3. Businesses
@@ -235,7 +227,6 @@ python3 manage.py test
 | name | String |
 | description | String |
 | location | String |
-|  |  |
 
 > 4. Emergencies 
 
@@ -245,7 +236,6 @@ python3 manage.py test
 | name | String |
 | contact | String |
 | description | String |
-|  |  |
 
 > 5. Posts 
 
@@ -256,7 +246,6 @@ python3 manage.py test
 | content | String |
 | tag | String |
 | hood | NeighbourhoodType |
-|  |  |
 
 ### Sample request to the API
 > Get all emergencies by the name
